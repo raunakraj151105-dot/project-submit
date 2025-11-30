@@ -1,4 +1,4 @@
-let all_transaction = [];
+let all_transaction = JSON.parse(localStorage.getItem("transactions")) || [];
 
 const transaction_form = document.getElementById("transactionForm");
 const transaction_list = document.getElementById("transactionList");
@@ -50,12 +50,24 @@ function updateList(type, amount, date, category) {
   transaction_list.prepend(itemEl);
 }
 
+function renderAll() {
+  transaction_list.innerHTML = "";
+  all_transaction.forEach((t) => {
+    updateList(t.type, t.amount, t.date, t.category);
+  });
+}
+
+function saveLocal() {
+  localStorage.setItem("transactions", JSON.stringify(all_transaction));
+}
+
 function deleteTransaction(event) {
   const btn = event.currentTarget;
   const itemEl = btn.closest(".transaction-item");
 
   const index = Array.from(transaction_list.children).indexOf(itemEl);
   all_transaction.splice(index, 1);
+  saveLocal();
   updateBalance();
 
   itemEl.remove();
@@ -91,7 +103,11 @@ transaction_form.addEventListener("submit", function (event) {
 
   updateList(type, amount, date, category);
   all_transaction.unshift({ type, amount, date, category });
+  saveLocal();
   updateBalance();
 
   transaction_form.reset();
 });
+
+renderAll();
+updateBalance();
