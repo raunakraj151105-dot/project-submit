@@ -1,6 +1,6 @@
 # Expense Tracker
 
-Live demo: [Click Here](https://expense-tracker-nine-ashen-74.vercel.app)
+Live demo: [Click Here](https://expense-tracker-gouranga.netlify.app)
 
 A lightweight, user-friendly expense tracker web app to help you log, categorize, and visualize personal expenses. Built with modern front-end tooling and designed for easy deployment (Vercel ready).
 
@@ -51,4 +51,5 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 ## Contact
 Repo owner: https://github.com/GourangaDasSamrat
+
 
