@@ -109,5 +109,6 @@ transaction_form.addEventListener("submit", function (event) {
   transaction_form.reset();
 });
 
+
 renderAll();
 updateBalance();
